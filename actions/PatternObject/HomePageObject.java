@@ -8,7 +8,8 @@ public class HomePageObject extends BasePage{
         this.driver = driver;
     }
 
-    public void clickToRegisterButton() {
+    public RegisterPageObject clickToRegisterButton() {
         clickToElement(driver,HomePageUI.REGISTER_LINK);
+        return new RegisterPageObject(driver);
     }
 }

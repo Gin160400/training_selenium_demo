@@ -18,7 +18,7 @@ public class TCs_Level_01 {
     
     @BeforeClass
     public void beforeClass(){
-        driver = new EdgeDriver();
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demo.nopcommerce.com/");
 
@@ -28,13 +28,10 @@ public class TCs_Level_01 {
     @Test
     public void TCs_01_homePage(){
         homePage.clickToRegisterButton();
-
-        registerPage = new RegisterPageObject(driver);
-        
     }
     @Test
     public void TCs_02_registerPage(){
-        registerPage = new RegisterPageObject(driver);
+        registerPage = homePage.clickToRegisterButton();
         //registerPage.genderMaleSelected();
         registerPage.firstNameTextbox();
         registerPage.lastNameTextbox();
@@ -42,14 +39,11 @@ public class TCs_Level_01 {
         registerPage.companyNameTextbox();
         registerPage.passwordTextbox();
         registerPage.confirmPasswordTextbox();
-        registerPage.registerButton();
-        //registerPage.confirmText();
-        //registerPage.continueButton();
-        //registerPage.myAccountButton();
-        
+        registerPage.registerButton(); 
+
     }
     @AfterClass
     public void afterClass(){
-       // driver.quit();
+        driver.quit();
     }
 }
